@@ -2,9 +2,10 @@ let nums = [];
 let cols = [];
 function setup() {
 	createCanvas(800, 600);
+	colorMode(HSB, 1);
 	for (let i = 0; i < width; i++) {
 		nums.push(random()*height);
-		cols.push([random(255), random(255), random(255), random(255)]);
+		cols.push([nums[i]/height, 1, 1]);
 	}
 }
 
@@ -23,6 +24,9 @@ function BubbleStep () {
 			let temp = nums[i];
 			nums[i] = nums[i+1];
 			nums[i+1] = temp;
+			let tempcol = cols[i];
+			cols[i] = cols[i+1];
+			cols[i+1] = tempcol;
 		}
 	}
 }
